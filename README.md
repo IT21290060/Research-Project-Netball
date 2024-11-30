@@ -2,7 +2,7 @@
 Performance enhancement and teamwork optimization in netball.
 
 # System Overview
-Business Case
+# Business Case
 This project aims to revolutionize netball training for young players by providing an automated, affordable, and efficient solution to evaluate and improve their overall performance. By integrating machine learning (ML) technology, this solution identifies and analyzes key aspects of netball performance, allowing players, coaches, and umpires to train independently and effectively.
 The system will evaluate players on four critical components: pass detection, hand signal recognition, technique analysis, and fitness evaluation via motor skills. This innovation addresses the gap in cost-effective and comprehensive training methods for netball enthusiasts and professionals.
 

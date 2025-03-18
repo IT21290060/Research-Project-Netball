@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Netball Pass Recognition</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+  <!-- Header/Navbar -->
+  <header class="d-flex justify-content-between align-items-center px-4 py-2 custom-header">
+    <a href="/" class="icon-link">
+      <i class="bi bi-house-fill"></i>
+    </a>
+    <div class="d-flex gap-4">
+      <a href="#" class="icon-link" title="Profile"><i class="bi bi-person-circle"></i></a>
+      <a href="#" class="icon-link" title="Settings"><i class="bi bi-gear-fill"></i></a>
+      <a href="#" class="icon-link" title="Logout"><i class="bi bi-box-arrow-right"></i></a>
+    </div>
+  </header>
+
+  <div class="custom-container mt-5">
+    <h4 class="text-center" style="color: rgb(0, 0, 77);">Netball Pass Analysis System</h4>
+
+    <form id="upload-form" action="/predict" method="POST" enctype="multipart/form-data" class="mt-4">
+    
+      <!-- Drag & Drop Area -->
+      <div id="drop-area" class="drop-area mb-3">
+        <!-- Plus icon above drop area -->
+      <div class="text-center mb-2">
+        <i class="bi bi-plus-circle" style="font-size: 3rem; color: #6c757d;"></i>
+      </div>
+        <p><strong>Drag & Drop</strong> your video here</p>
+        <p class="file-name" id="file-name">No file selected</p>
+      </div>
+    
+      <!-- Click to Browse Button -->
+      <div class="text-center mb-3">
+        <button type="button" id="browse-btn" class="btn btn-secondary">Click to Browse</button>
+      </div>
+    
+      <!-- Hidden File Input -->
+      <input type="file" id="video-upload" name="video" accept="video/*" required style="display: none;">
+    
+      <!-- Submit Button -->
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+    
+  </div>
+
+  <script src="{{ url_for('static', filename='script-index.js') }}"></script>
+</body>
+</html>

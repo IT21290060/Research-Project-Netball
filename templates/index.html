@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netball Position Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        body {
+            background: url('{{ url_for("static", filename="image/background.jpg") }}') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .upload-section {
+            margin: 20px 0;
+        }
+
+        .file-input {
+            margin: 15px 0;
+        }
+
+        .file-label {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .analyze-btn {
+            padding: 10px 30px;
+            background: #2ecc71;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .file-name {
+            margin-left: 10px;
+            color: #666;
+        }
+
+        .back-button {
+            margin-top: 20px;
+        }
+
+        .back-button a {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #e74c3c;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .back-button a:hover {
+            background: #c0392b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Netball Position Analysis System</h1>
+
+        <!-- Upload Section -->
+        <div class="upload-section">
+            <form id="uploadForm" action="{{ url_for('analyze') }}" method="POST" enctype="multipart/form-data">
+                <div class="file-input">
+                    <input type="file" id="videoFile" name="file" accept="video/*" hidden required>
+                    <label for="videoFile" class="file-label">
+                        <span class="browse-btn">Choose Video</span>
+                        <span class="file-name">No file selected</span>
+                    </label>
+                </div>
+                <button type="submit" class="analyze-btn">Analyze Performance</button>
+            </form>
+        </div>
+
+        <!-- Back Button -->
+        <div class="back-button">
+            <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+        </div>
+    </div>
+
+    <script>
+        // Display selected file name
+        const fileInput = document.getElementById('videoFile');
+        const fileNameDisplay = document.querySelector('.file-name');
+
+        fileInput.addEventListener('change', () => {
+            if (fileInput.files.length > 0) {
+                fileNameDisplay.textContent = fileInput.files[0].name;
+            } else {
+                fileNameDisplay.textContent = 'No file selected';
+            }
+        });
+    </script>
+</body>
+</html>

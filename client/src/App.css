@@ -1,0 +1,96 @@
+:root {
+  --primary-color: #0b2545;
+  --accent-color: #13315c;
+  --secondary-color: #134074;
+  --background-color: #f7f7f7;
+  --light-color: #ffffff;
+  --dark-color: #0b2545;
+  --success-color: #28a745;
+  --error-color: #dc3545;
+}
+
+body {
+  background-color: var(--primary-color);
+  color: var(--light-color);
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  background-color: var(--dark-color);
+}
+
+.btn-primary {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.card {
+  background-color: var(--accent-color);
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: var(--light-color);
+  margin-bottom: 20px;
+}
+
+.dropzone {
+  border: 2px dashed var(--light-color);
+  border-radius: 8px;
+  padding: 50px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: border 0.3s ease;
+}
+
+.dropzone:hover {
+  border-color: var(--success-color);
+}
+
+.upload-icon {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.result-container {
+  background-color: var(--accent-color);
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.signal-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.form-control {
+  background-color: var(--light-color);
+  color: var(--dark-color);
+}
+
+.accuracy-container {
+  margin-bottom: 15px;
+}
+
+.accuracy-label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.progress {
+  height: 25px;
+  border-radius: 5px;
+}
+
+.btn-danger, .btn-success {
+  width: 100%;
+  margin-top: 10px;
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload Video</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">🏠 Home</a></li>
+            <li><a href="/pass">Pass Recognition</a></li>
+            <li><a href="/position">Position Recognition</a></li>
+        </ul>
+    </nav>
+    <div class="content">
+        <h2>Upload Video for Recognition</h2>
+        <form method="POST" enctype="multipart/form-data">
+            <input type="file" name="video" accept="video/*" required>
+            <button type="submit">Analyze Pass</button>
+        </form>
+
+        <form method="POST" action="/position" enctype="multipart/form-data" style="margin-top: 20px;">
+            <input type="file" name="file" accept="video/*" required>
+            <button type="submit">Analyze Position</button>
+        </form>
+    </div>
+</body>
+</html>

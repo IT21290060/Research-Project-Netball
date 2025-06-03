@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">🏠 Home</a></li>
+            <li><a href="/pass">Pass Recognition</a></li>
+            <li><a href="/position">Position Recognition</a></li>
+        </ul>
+    </nav>
+    <div class="content">
+        {% if prediction %}
+            <h2>Pass Type Prediction</h2>
+            <p><strong>Type:</strong> {{ prediction }}</p>
+            <p><strong>Confidence:</strong> {{ probability }}%</p>
+            <p><strong>Feedback:</strong> {{ feedback }}</p>
+        {% elif position %}
+            <h2>Player Position Prediction</h2>
+            <p><strong>Predicted Position:</strong> {{ position }}</p>
+            {% if skills %}
+                <h3>Skill Scores</h3>
+                <ul>
+                    {% for skill in skills %}
+                        <li>{{ skill.name }}: {{ skill.value }}%</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+            {% if playing_area_image %}
+                <img src="{{ url_for('static', filename='images/' + playing_area_image) }}" alt="Playing Area" style="max-width: 400px;">
+            {% endif %}
+        {% else %}
+            <p>No prediction available.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
